@@ -46,7 +46,8 @@
     cursor: pointer;
   }
 input[type="url"]{
-  margin-bottom: 2px;
-  border: 2px solid grey;
+  display: inline;
+  margin-bottom: 10px;
+  border: 2px ridge rgb(128, 128, 128);
   border-radius: 5%;
 }

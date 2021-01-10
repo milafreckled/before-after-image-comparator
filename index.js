@@ -25,12 +25,13 @@ $("#filesource1").on("input change", (e) =>{
     console.log(url);
     console.log(e.target.files);
     var ext = url.substring(url.lastIndexOf('.')+1).toLowerCase();
-    if ( $("#filesource1").files && $("#filesource1").files[0] && (ext == "jpg" || ext == "png" || ext=="gif" || ext=="jpeg")){
-
-    var reader = new FileReader();
-    reader.readAsDataURL(inputFile.files[0]);
-    reader.onload = (e) =>{
-      $('.foreground-image').css('background-image', 'url("'+e.target.files[0].fullName+'")');
+    if ( $("#filesource1").files && $("#filesource1").files[0]){
+    var source = URL.createObjectURL($("#filesource1").files[0]);
+    console.log(source);
+    $('.foreground-image').css('background-image', 'url("'+source+'")');
+    $('.foreground-image').onload = imageIsLoaded;
     }
-  }
 });
+function imageIsLoaded(){
+  alert(this);
+}
